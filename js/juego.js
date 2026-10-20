@@ -573,6 +573,16 @@ function start(){
   $('instalar-boton').onclick = instalar;
 }
 
+// ---------- pie ----------
+// El año de los derechos es el actual. El correo se monta aquí, a trozos, para que no aparezca entero en los archivos.
+$('anio-derechos').textContent = new Date().getFullYear();
+{
+  const correo = 'ecasanovabisc' + '@' + ['gmail', 'com'].join('.');
+  const enlace = document.createElement('a');
+  enlace.href = 'mailto:' + correo; enlace.textContent = correo;
+  $('contacto').append(' · ', enlace);
+}
+
 // ---------- portada ----------
 // Se queda lo justo para ver montarse la escalera (o menos si se toca) y se va cuando el juego está listo.
 const portada = $('portada');
