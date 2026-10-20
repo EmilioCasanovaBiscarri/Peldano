@@ -6,7 +6,7 @@
 const LANZAMIENTO = '2026-10-15';
 const fechaUTC = iso => { const [y, m, d] = iso.split('-').map(Number); return Date.UTC(y, m-1, d); };
 const START = fechaUTC(LANZAMIENTO);
-const URL_JUEGO = 'https://emiliocasanovabiscarri.github.io/Peldano/';
+const URL_JUEGO = 'https://peldanio.github.io/';
 const URL_COMPARTIR = URL_JUEGO.replace(/^https?:\/\//, '').replace(/\/$/, '');   // en el texto de compartir, sin https:// ni barra final
 const STORE = 'peldano-v1';
 const NIVELES = ['principiante', 'intermedio', 'experto'];

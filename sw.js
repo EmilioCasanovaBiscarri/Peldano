@@ -1,6 +1,6 @@
 // Service worker de Peldaño: guarda el juego en el dispositivo para que funcione sin conexión.
 // Al cambiar cualquier archivo del juego, sube VERSION para que los móviles reciban la nueva versión.
-const VERSION = 'peldano-v17';
+const VERSION = 'peldano-v18';
 const ARCHIVOS = [
   './', 'index.html', 'css/estilo.css', 'js/juego.js', 'data/retos.json', 'data/diccionario.json', 'manifest.webmanifest',
   'fonts/bricolage.woff2', 'fonts/atkinson-400.woff2', 'fonts/atkinson-700.woff2',

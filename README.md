@@ -36,7 +36,7 @@ Una escalera que conecta dos palabras. Juego de palabras diario en español: se 
   Peldaño #3 · Intermedio
   De la reja al muro
   🪜 5 peldaños (par 4) · +1
-  emiliocasanovabiscarri.github.io/Peldano
+  peldanio.github.io
   ```
 
   Con pistas, «🪜 4 peldaños + 1 pista (par 4) · +1»; al rendirse, «🏳️ Me he rendido (par 4)».
@@ -86,17 +86,17 @@ Para empezar de cero, abre <http://localhost:8000/reiniciar> y confirma con «S�
 
 ## Publicación en GitHub Pages
 
-El juego es estático y usa rutas relativas, así que funciona tal cual en `https://emiliocasanovabiscarri.github.io/Peldano/`:
+El juego es estático y usa rutas relativas. Está en el repositorio `Peldanio/peldanio.github.io` (la organización `Peldanio` de GitHub), así que GitHub Pages lo publica en la raíz de `https://peldanio.github.io/`:
 
 1. En GitHub: *Settings → Pages → Build and deployment → Source: Deploy from a branch*.
 2. Rama `main`, carpeta `/ (root)`, *Save*.
-3. A los pocos minutos estará en <https://emiliocasanovabiscarri.github.io/Peldano/>.
+3. A los pocos minutos estará en <https://peldanio.github.io/>.
 
 Para instalarlo en el móvil: abrir la dirección y, en Android (Chrome), *Instalar aplicación*; en iPhone (Safari), *Compartir → Añadir a pantalla de inicio*. La instalación y el modo sin conexión necesitan HTTPS, que GitHub Pages ya da.
 
-**El `id` de `manifest.webmanifest` es `"https://emiliocasanovabiscarri.github.io/Peldano"` y no se debe volver a cambiar.** Chrome identifica la app instalada por él: si cambia, los móviles la toman por otra app. Además, el `id` no se resuelve respecto a la carpeta del juego, sino respecto al origen de `start_url` (`https://emiliocasanovabiscarri.github.io`). Por eso no vale `"./"` ni `"/"`: los dos dan la raíz del sitio, la misma que Almanaque, y Chrome confundiría las dos apps («ya está instalado», «No se puede abrir la app»).
+**El `id` de `manifest.webmanifest` es `"/"` y no se debe volver a cambiar.** Chrome identifica la app instalada por él: si cambia, los móviles la toman por otra app. El `id` se resuelve respecto al origen de `start_url`, así que queda `https://peldanio.github.io/`. Como ese origen es solo de Peldaño, no puede chocar con ningún otro juego.
 
-Historia del `id`: hasta el 16 de octubre de 2026 no se fijaba y Chrome calculaba `/Peldano/`. Del 16 al 17 fue `"./"`, que chocaba con Almanaque. El 17 pasó a `"/Peldano/"`. El 18 pasó a `"/Peldano/app"`, porque una tablet Android seguía diciendo «ya está instalada» con `"/Peldano/"` sin tener ninguna app de Peldaño en `chrome://webapks`, y ese mismo día a `"https://emiliocasanovabiscarri.github.io/Peldano"`, porque en esa tablet Chrome Beta mostraba para Peldaño un `id` sin `/Peldano/app`. Al ser una dirección completa, en local (`localhost`) Chrome ignora el `id` y usa `start_url`. Quien instaló Peldaño con un `id` anterior conserva su app, pero Chrome puede ofrecerle instalarla de nuevo como otra distinta.
+Historia: hasta el 20 de octubre de 2026 Peldaño estaba en `https://emiliocasanovabiscarri.github.io/Peldano/`, en el mismo origen que Almanaque y los demás juegos. Aunque el `id` se cambió varias veces (no fijado, `"./"`, `"/Peldano/"`, `"/Peldano/app"` y `"https://emiliocasanovabiscarri.github.io/Peldano"`), una tablet Android seguía diciendo «ya está instalada» o «No se puede abrir la app». Por eso el 20 de octubre el juego pasó a su propia organización y a su propio dominio. La dirección antigua dejó de funcionar, y el progreso guardado allí no se trasladó.
 
 Si cambia la dirección, actualiza `URL_JUEGO` en `js/juego.js` (de ella sale el enlace del texto de compartir, sin `https://`) y las etiquetas `og:` de `index.html`.
 
